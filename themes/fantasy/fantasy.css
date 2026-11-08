@@ -1,0 +1,152 @@
+/* Maquette « Fantasy » — prune sombre, néon bleu, rose. Surcharge de style.css */
+:root {
+  --pink: #ec6f9a;
+  --pink-2: #f59ab8;
+  --plum: #22122b;
+  --plum-2: #2f1a3a;
+  --ink: #f6eef7;
+  --muted: #c3aecb;
+  --line: rgba(236, 111, 154, .45);
+  --card: rgba(58, 30, 70, .55);
+  --radius: 34px;
+  --good: #5fd3a2;
+  --bad: #ff6f86;
+}
+.test-card, .full-card, .quiz, .results, .bd-row, .cat-tag { --accent: var(--pink) !important; }
+
+body {
+  font-family: "Montserrat", "Segoe UI", sans-serif; color: var(--ink);
+  background:
+    linear-gradient(rgba(236, 111, 154, .07) 1px, transparent 1px) 0 0 / 46px 46px,
+    linear-gradient(90deg, rgba(236, 111, 154, .07) 1px, transparent 1px) 0 0 / 46px 46px,
+    radial-gradient(circle at 50% -10%, #3a1b5e 0, transparent 50%),
+    linear-gradient(180deg, #1c0f26, var(--plum) 40%, #2a1530);
+  overflow-x: hidden;
+}
+h1, h2, h3, .score-ring strong { font-family: "Space Grotesk", "Montserrat", sans-serif; }
+.site-header { display: none; }
+.glow { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(40px); opacity: .5; }
+.glow.g1 { width: 900px; height: 140px; left: 50%; top: -90px; transform: translateX(-50%); background: #3b5bff; }
+.glow.g2 { width: 300px; height: 300px; right: -120px; top: 40%; background: #ec6f9a; opacity: .18; }
+
+/* ---------- Navigation en verre ---------- */
+.glass-nav { position: sticky; top: 14px; z-index: 30; max-width: 1040px; margin: 22px auto 0; display: flex; align-items: center; gap: 20px;
+  padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(40, 18, 52, .6); backdrop-filter: blur(14px); }
+.badge-logo { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; text-decoration: none; color: #ffd36b; font: 700 1.1rem "Space Grotesk"; background: radial-gradient(circle, #24203a, #0f0c18); border: 2px solid #3d6bff; box-shadow: 0 0 16px rgba(61, 107, 255, .5); }
+.glass-nav nav { display: flex; gap: 6px; margin-left: 30px; }
+.glass-nav nav a { color: var(--ink); text-decoration: none; font-weight: 500; padding: 8px 18px; border-radius: 999px; font-size: .92rem; }
+.glass-nav nav a:hover { color: var(--pink-2); }
+.glass-nav nav a.outlined { border: 1px solid var(--pink-2); }
+.burger { margin-left: auto; background: none; border: 0; display: flex; flex-direction: column; gap: 6px; cursor: pointer; padding: 8px; }
+.burger span { width: 30px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+main { position: relative; z-index: 1; max-width: 1100px; padding-top: 30px; }
+
+/* ---------- Haut de page ---------- */
+.hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 30px; align-items: center; text-align: left; padding: 30px 10px 10px; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.05; margin: 0 0 18px; color: #fff; letter-spacing: -.02em; }
+.pink { background: linear-gradient(90deg, #ec6f9a, #f8a1c0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.arrow-badge { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: #fff; color: var(--plum); font-size: 1.1rem; text-decoration: none; vertical-align: middle; }
+.hero p { color: var(--muted); max-width: 520px; margin: 0 0 24px; line-height: 1.6; }
+.glass-btn { border: 1px solid var(--pink-2); background: rgba(236, 111, 154, .08); color: var(--ink); border-radius: 999px; padding: 12px 14px 12px 26px; font: 600 1rem "Montserrat"; display: inline-flex; align-items: center; gap: 18px; cursor: pointer; backdrop-filter: blur(8px); }
+.glass-btn span { width: 34px; height: 34px; border-radius: 50%; background: #fff; color: var(--plum); display: grid; place-items: center; font-size: 1.3rem; }
+.glass-btn:hover { background: rgba(236, 111, 154, .22); }
+.glass-btn.small { padding: 10px 28px; font-size: .95rem; display: block; margin: 0 auto; }
+.h-card { justify-self: center; width: 230px; height: 300px; border-radius: 46px; overflow: hidden; border: 1px solid var(--line); position: relative;
+  box-shadow: -26px 26px 0 -6px rgba(236, 111, 154, .55), 0 30px 60px rgba(0, 0, 0, .45); }
+.land { width: 100%; height: 100%; display: block; }
+
+/* ---------- Carrousel ---------- */
+.stage { position: relative; padding: 40px 0 30px; margin: 20px -40px 0; overflow: hidden; }
+.band { position: absolute; left: 0; right: 0; top: 120px; height: 300px; background: linear-gradient(90deg, transparent, rgba(150, 70, 120, .35), transparent); border-top: 1px solid rgba(236, 111, 154, .15); border-bottom: 1px solid rgba(236, 111, 154, .15); }
+.carousel { position: relative; height: 440px; display: flex; align-items: center; justify-content: center; }
+.c-card { position: absolute; border-radius: 48px; overflow: hidden; border: 1px solid var(--line); cursor: pointer; transition: transform .4s, opacity .4s; box-shadow: 0 30px 60px rgba(0, 0, 0, .45); }
+.c-card.center { width: 300px; height: 410px; z-index: 3; cursor: default; }
+.c-card.side { width: 230px; height: 310px; z-index: 2; opacity: .55; filter: saturate(.8); }
+.c-card.side.left { transform: translateX(-270px) rotate(-3deg); } .c-card.side.right { transform: translateX(270px) rotate(3deg); }
+.c-card.far { width: 190px; height: 250px; z-index: 1; opacity: .25; }
+.c-card.far.left { transform: translateX(-470px) rotate(-6deg); } .c-card.far.right { transform: translateX(470px) rotate(6deg); }
+.c-card:hover:not(.center) { opacity: .8; }
+.c-over { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: 24px; background: linear-gradient(180deg, transparent 35%, rgba(20, 8, 28, .85)); }
+.c-icon { font-size: 2.2rem; }
+.c-over strong { font: 700 1.5rem "Space Grotesk"; }
+.c-over small { color: #e8d6ec; font-size: .85rem; }
+.play-btn { position: absolute; top: 20px; right: 20px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: #fff; color: var(--plum); font-size: 1.1rem; cursor: pointer; box-shadow: 0 8px 18px rgba(0, 0, 0, .3); }
+.play-btn:hover { background: var(--pink); color: #fff; }
+.c-mini { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 2rem; opacity: .9; }
+.arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: rgba(40, 18, 52, .7); color: #fff; font-size: 1.6rem; cursor: pointer; }
+.arrow.left { left: 60px; } .arrow.right { right: 60px; }
+.c-count { text-align: center; color: var(--muted); margin: 6px 0 16px; font-weight: 600; letter-spacing: .1em; }
+.chev { display: block; width: 28px; height: 28px; margin: 14px auto 0; border-radius: 50%; background: #fff; color: var(--plum); text-align: center; line-height: 24px; font-weight: 700; }
+
+/* ---------- Arc rose et éventail ---------- */
+.arc-zone { position: relative; height: 470px; margin: 30px -40px 0; overflow: hidden; }
+.arc { position: absolute; left: 50%; top: 90px; width: 1400px; height: 1400px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #2a1530 0 30%, #f08fb0 30.2% 47%, #2a1530 47.2%);
+  box-shadow: 0 -2px 0 rgba(61, 107, 255, .7), 0 -30px 60px rgba(61, 107, 255, .35); }
+.fan { position: relative; height: 100%; }
+.fan-card { position: absolute; width: 210px; height: 290px; border-radius: 40px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .35); cursor: pointer; box-shadow: 0 30px 50px rgba(40, 10, 40, .5); transition: transform .3s; }
+.fan-card.f0 { left: calc(50% - 360px); top: 160px; transform: rotate(-24deg); opacity: .8; }
+.fan-card.f1 { left: calc(50% - 105px); top: 40px; z-index: 2; }
+.fan-card.f2 { left: calc(50% + 150px); top: 160px; transform: rotate(24deg); opacity: .8; }
+.fan-card:hover { opacity: 1; }
+.fan-card.f1:hover { transform: translateY(-8px); }
+.fan-over { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; background: linear-gradient(180deg, transparent 40%, rgba(20, 8, 28, .85)); gap: 2px; }
+.fan-over span { font-size: 1.6rem; }
+.fan-over strong { font: 700 1.1rem "Space Grotesk"; }
+.fan-over small { color: #e8d6ec; }
+.corner { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 10px; background: rgba(255, 255, 255, .85); color: var(--plum); display: grid; place-items: center; font-weight: 700; }
+.arc-badge { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); z-index: 3; width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle, #3d6bff, #1b2a8f); border: 4px solid #f08fb0; color: #fff; font: 700 1.6rem "Space Grotesk"; box-shadow: 0 0 30px rgba(61, 107, 255, .6); }
+
+/* ---------- Grille des catégories ---------- */
+.all-grid { padding: 40px 0 10px; }
+.section-title { color: var(--ink); font-size: 1.4rem; }
+.cards { gap: 18px; }
+.test-card { background: var(--card); border: 1px solid var(--line); border-top: 1px solid var(--line); border-radius: 30px; color: var(--ink); backdrop-filter: blur(6px); box-shadow: 0 20px 40px rgba(0, 0, 0, .3); }
+.test-card p { color: var(--muted); }
+.mini-land { position: relative; height: 120px; border-radius: 22px; overflow: hidden; }
+.mini-land span { position: absolute; left: 14px; bottom: 10px; font-size: 1.8rem; }
+
+/* ---------- Boutons, questions, résultats (thème sombre) ---------- */
+.btn { border-radius: 999px; font-family: "Montserrat"; font-weight: 600; }
+.btn.primary { background: linear-gradient(90deg, #ec6f9a, #f28db0); box-shadow: 0 8px 22px rgba(236, 111, 154, .35); }
+.btn.ghost { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+.link { color: var(--muted); }
+.q-card, .score-card, .breakdown, .corr { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 24px 50px rgba(0, 0, 0, .35); backdrop-filter: blur(10px); }
+.q-text, .corr-q { color: #fff; }
+.big-seq { background: rgba(255, 255, 255, .08); color: #fff; border-radius: 22px; border: 1px solid var(--line); }
+.option { background: rgba(255, 255, 255, .06); border: 1px solid rgba(236, 111, 154, .3); color: var(--ink); border-radius: 22px; }
+.option:hover { border-color: var(--pink-2); }
+.option.selected { border: 2px solid var(--pink); background: rgba(236, 111, 154, .18); }
+/* les figures gardent un fond clair pour rester lisibles */
+.options.visual .option, .matrix, .an-pair, .figure .fig-item, .trace-box, .fig-maze, .ver { background: #f6eef7; }
+.options.visual .option.selected { background: #ffe3ee; }
+.figure .fig-item span { color: var(--plum); }
+.progress { background: rgba(255, 255, 255, .1); }
+.counter { border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; white-space: nowrap; }
+.score-ring > div { background: var(--plum-2); }
+.score-text p, .explain, .corr-num, .lbl, .eyebrow { color: var(--muted); }
+.ans.good { background: rgba(95, 211, 162, .15); } .ans.bad { background: rgba(255, 111, 134, .15); }
+.corr-answers.visual .ans { background: #f6eef7; border: 3px solid var(--good); }
+.corr-answers.visual .ans.bad { border-color: var(--bad); }
+.fig-net, .fig-frag { background: #f6eef7; border-radius: 14px; padding: 6px; }
+.corr-memo, .listen-tip, .trace-bar { color: var(--muted); background: transparent; }
+.memo-content { color: #fff; }
+.site-footer { color: var(--muted); border-top: 1px solid rgba(236, 111, 154, .15); position: relative; z-index: 1; }
+
+@media (max-width: 860px) {
+  .glass-nav { margin: 12px; gap: 10px; }
+  .glass-nav nav { display: none; }
+  .hero { grid-template-columns: 1fr; text-align: left; }
+  .h-card { width: 180px; height: 230px; }
+  .stage, .arc-zone { margin-left: -20px; margin-right: -20px; }
+  .c-card.center { width: 250px; height: 350px; }
+  .c-card.side.left { transform: translateX(-190px) rotate(-3deg); } .c-card.side.right { transform: translateX(190px) rotate(3deg); }
+  .c-card.far { display: none; }
+  .arrow.left { left: 6px; } .arrow.right { right: 6px; }
+  .fan-card { width: 150px; height: 210px; border-radius: 30px; }
+  .fan-card.f0 { left: calc(50% - 215px); top: 190px; } .fan-card.f1 { left: calc(50% - 75px); top: 70px; } .fan-card.f2 { left: calc(50% + 65px); top: 190px; }
+  .fan-over strong { font-size: .9rem; }
+}
+.fig-item span { color: inherit; opacity: .85; }

@@ -1,0 +1,68 @@
+/* Réglages pour téléphone, chargés après le style de chaque design */
+@media (max-width: 700px), (pointer: coarse) {
+  /* Labyrinthes à tracer : gros boutons à la place des petits points */
+  .trace-dirs { display: flex; gap: 10px; margin-top: 12px; }
+  .trace-dirs .btn { flex: 1; padding: 14px 8px; font-size: 1.05rem; }
+}
+
+@media (max-width: 700px) {
+  /* Questions : la figure laisse de la place aux réponses */
+  .figure { flex-wrap: nowrap; gap: 12px; margin-bottom: 14px; }
+  .fig-item { flex: 0 1 130px; width: auto; min-width: 0; }
+  .fig-net { max-width: 200px; }
+  .fig-item .cell-svg { height: auto; aspect-ratio: 1 / 1; }
+  .quiz-top { gap: 8px; }
+  .quiz-top .link, .counter { white-space: nowrap; flex-shrink: 0; }
+  .quiz-title { min-width: 0; text-align: center; font-size: .92rem; }
+  .btn { min-height: 44px; }
+  input, select, textarea { font-size: 16px; }
+
+  /* Le bouton Design ne doit pas cacher le bas de la page */
+  .site-footer { padding-bottom: 76px; }
+
+  /* Correction */
+  .explain-row { align-items: stretch; }
+  .dev-btn { align-self: flex-start; padding: 8px 14px; }
+  .kid-box { padding: 10px 12px; }
+  .kid-pic { padding: 8px; }
+
+  /* Rose pastel : l'en-tête ne reste plus collé en haut */
+  .site-header { position: static; }
+
+  /* Stream kawaii : barre latérale réduite à une ligne qui défile */
+  .layout > .side { padding: 10px 12px; gap: 8px; }
+  .layout > .side .tag-pill, .layout > .side .side-foot { display: none; }
+  .layout > .side .bubble-label { box-shadow: 3px 3px 0 var(--o); padding: 3px 12px; font-size: .72rem; }
+  .layout > .side .bubble-label::after { display: none; }
+  .layout > .side .radios { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .layout > .side .radios a { white-space: nowrap; }
+
+  /* Cristal de lune : la lune ne passe plus sous le titre */
+  .moon-r { display: none; }
+
+  /* La ville qui rêve : titre plus lisible sur les nuages */
+  .poster-title h1 { text-shadow: 0 2px 10px rgba(10, 12, 40, .9); }
+
+  /* Planning pixel : le décor ne passe plus sur le texte */
+  .off:not(.strip) .s1, .off:not(.strip) .s3 { display: none; }
+  .off:not(.strip) .off-txt { top: 52px; }
+  .off:not(.strip) .pface { bottom: 12px; }
+}
+
+/* Très petits téléphones */
+@media (max-width: 360px) {
+  .trace-btns { flex-wrap: wrap; }
+  .trace-btns .btn { padding: 8px 10px; font-size: .9rem; }
+  .quiz-title { font-size: .82rem; }
+  .neon-box { min-width: 0; overflow-wrap: anywhere; }
+  .tracks { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .track, .t-name { min-width: 0; overflow-wrap: anywhere; }
+  .scene { grid-template-columns: minmax(0, 1fr); }
+  .scene > * { min-width: 0; }
+  .list-win .row { min-width: 0; }
+  .stage { padding: 0 8px; min-width: 0; max-width: 100%; box-sizing: border-box; overflow-wrap: anywhere; }
+  .phone { padding-left: 8px; padding-right: 8px; min-width: 0; }
+  .head-pill { font-size: .62rem; padding-right: 10px; gap: 6px; }
+  .head-pill .env svg { width: 24px; }
+  .status { font-size: .6rem; }
+}

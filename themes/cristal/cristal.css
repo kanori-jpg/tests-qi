@@ -1,0 +1,111 @@
+/* Maquette « Cristal de lune » — ciel lavande, cristal, nuages. Surcharge de style.css */
+:root {
+  --deep: #2b2468;
+  --violet: #7a5bd0;
+  --lilac: #c9b6f2;
+  --mist: #efe8ff;
+  --ink: #3a2c6b;
+  --muted: #6e62a0;
+  --line: rgba(255, 255, 255, .55);
+  --glass: rgba(255, 255, 255, .72);
+  --radius: 26px;
+}
+.test-card, .full-card, .quiz, .results, .bd-row, .cat-tag { --accent: var(--violet) !important; }
+
+body { font-family: "Quicksand", "Segoe UI", sans-serif; color: var(--ink); background: transparent; }
+.site-header { display: none; }
+
+/* ---------- Ciel (fixe derrière tout) ---------- */
+.sky { position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 30% at 80% 55%, rgba(255, 196, 220, .35), transparent),
+    radial-gradient(ellipse 70% 40% at 20% 70%, rgba(220, 200, 255, .45), transparent),
+    linear-gradient(180deg, #1f1a54 0%, #3d3388 30%, #6a58b6 65%, #9a85d4 100%); }
+.hero .sub { color: #f4eeff; text-shadow: 0 0 10px rgba(180, 150, 255, .7); }
+.stars { position: absolute; inset: 0; background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 28% 8%, #fff, transparent),
+  radial-gradient(1.6px 1.6px at 46% 22%, #fff, transparent), radial-gradient(1px 1px at 63% 12%, #fff, transparent),
+  radial-gradient(1.4px 1.4px at 78% 28%, #fff, transparent), radial-gradient(1px 1px at 90% 6%, #fff, transparent),
+  radial-gradient(1.2px 1.2px at 8% 40%, #fff, transparent), radial-gradient(1px 1px at 36% 36%, #fff, transparent),
+  radial-gradient(1.3px 1.3px at 56% 44%, #fff, transparent), radial-gradient(1px 1px at 86% 46%, #fff, transparent);
+  animation: twinkle 5s ease-in-out infinite alternate; }
+.stars.s2 { transform: translate(37px, 61px) scale(1.3); opacity: .6; animation-delay: 2.5s; }
+@keyframes twinkle { from { opacity: .45; } to { opacity: 1; } }
+.home-link { position: absolute; left: 22px; top: 18px; z-index: 5; color: #f4ecff; text-decoration: none; font-family: "Cinzel", serif; letter-spacing: .12em; font-size: .85rem; }
+main { max-width: 1060px; padding-top: 0; position: relative; }
+
+/* ---------- Haut : titre et cristal ---------- */
+.hero { position: relative; text-align: center; padding: 40px 0 10px; min-height: 620px; }
+.deco { font-family: "Cinzel Decorative", serif; font-weight: 900; font-size: clamp(2.6rem, 7vw, 5rem); margin: 30px 0 0; letter-spacing: .04em;
+  background: linear-gradient(180deg, #ffffff 10%, #e2d4ff 45%, #b99cf2 60%, #f6f0ff 80%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(90, 60, 170, .6)) drop-shadow(0 0 18px rgba(220, 200, 255, .6)); }
+.sub { font-family: "Cinzel", serif; color: #f1eaff; letter-spacing: .14em; text-transform: uppercase; font-size: .85rem; margin: 8px 0 0; }
+.sub::before, .sub::after { content: " — "; opacity: .6; }
+.gem-btn { position: relative; background: none; border: 0; cursor: pointer; display: block; margin: -8px auto 0; padding: 0; }
+.gem { width: 300px; display: block; transform-origin: 50% 0; animation: swing 5s ease-in-out infinite; filter: drop-shadow(0 20px 30px rgba(60, 30, 140, .45)); }
+@keyframes swing { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+.gem-btn:hover .gem { filter: drop-shadow(0 0 30px rgba(240, 220, 255, .9)); }
+.gem-label { display: block; font-family: "Cinzel", serif; color: #fff; letter-spacing: .14em; text-transform: uppercase; font-size: .9rem; margin-top: 4px; text-shadow: 0 0 12px rgba(200, 170, 255, .9); }
+.gem-label small { font-family: "Quicksand"; letter-spacing: .08em; text-transform: none; opacity: .85; }
+.moon-l { position: absolute; left: 4%; top: 150px; width: 170px; filter: drop-shadow(0 0 24px rgba(240, 230, 255, .8)); }
+.moon-r { position: absolute; right: 8%; top: 40px; width: 70px; transform: scaleX(-1); filter: drop-shadow(0 0 16px rgba(240, 230, 255, .8)); }
+.lan-l { position: absolute; left: 2%; top: 300px; width: 46px; animation: swing 6s ease-in-out infinite; transform-origin: 50% 0; }
+.lan-r { position: absolute; right: 6%; top: 150px; width: 52px; animation: swing 7s ease-in-out infinite reverse; transform-origin: 50% 0; }
+.constel { position: absolute; left: 6%; top: 10px; width: 200px; }
+.tw { position: absolute; color: #fff; text-shadow: 0 0 10px #fff; animation: twinkle 3s ease-in-out infinite alternate; }
+.tw.t1 { left: 30%; top: 70px; } .tw.t2 { right: 26%; top: 120px; font-size: 1.4rem; animation-delay: 1s; } .tw.t3 { right: 14%; top: 380px; animation-delay: 2s; } .tw.t4 { left: 20%; top: 420px; font-size: 1.3rem; }
+
+/* ---------- Liste des épreuves ---------- */
+.tracklist { position: relative; z-index: 2; margin: 10px 0 30px; }
+.track-title { display: flex; align-items: center; gap: 16px; justify-content: center; font-family: "Cinzel", serif; font-weight: 600; color: #fff; letter-spacing: .2em; text-transform: uppercase; font-size: 1.1rem; text-shadow: 0 0 12px rgba(160, 120, 255, .8); }
+.track-title span { width: 90px; height: 1px; background: linear-gradient(90deg, transparent, #fff, transparent); }
+.tracks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 18px; margin-top: 22px; }
+.tracks.three { grid-template-columns: repeat(3, 1fr); }
+.track { background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; color: #fff; font-family: inherit; }
+.orb { width: 112px; height: 112px; border-radius: 50%; display: grid; place-items: center; position: relative;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .95) 0 8%, rgba(236, 224, 255, .55) 22%, rgba(150, 110, 230, .45) 60%, rgba(90, 60, 180, .55) 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .6), 0 0 28px rgba(210, 190, 255, .65), inset 0 -10px 20px rgba(80, 40, 170, .35); transition: transform .3s, box-shadow .3s; }
+.orb::after { content: "✦"; position: absolute; right: 6px; top: 10px; color: #fff; font-size: .8rem; text-shadow: 0 0 6px #fff; }
+.orb span { font-size: 2.6rem; filter: drop-shadow(0 2px 6px rgba(60, 30, 140, .4)); }
+.orb.big { width: 132px; height: 132px; }
+.track:hover .orb { transform: translateY(-6px) scale(1.04); box-shadow: 0 0 0 1px #fff, 0 0 40px rgba(240, 225, 255, .95), inset 0 -10px 20px rgba(80, 40, 170, .35); }
+.t-name { font-family: "Cinzel", serif; font-weight: 600; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; text-align: center; text-shadow: 0 1px 6px rgba(40, 20, 100, .8); }
+.track small { color: #f1eaff; margin-top: -6px; }
+.bonus .t-name { font-size: .85rem; }
+.cloud-floor { height: 200px; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); z-index: 1; margin-top: -40px;
+  background:
+    radial-gradient(ellipse 160px 110px at 4% 100%, #fff 60%, transparent 62%), radial-gradient(ellipse 200px 140px at 18% 100%, #f1eaff 60%, transparent 62%),
+    radial-gradient(ellipse 150px 100px at 30% 95%, #fff 60%, transparent 62%), radial-gradient(ellipse 220px 150px at 44% 100%, #ece3ff 60%, transparent 62%),
+    radial-gradient(ellipse 170px 120px at 58% 96%, #fff 60%, transparent 62%), radial-gradient(ellipse 230px 150px at 72% 100%, #f1eaff 60%, transparent 62%),
+    radial-gradient(ellipse 160px 110px at 86% 96%, #fff 60%, transparent 62%), radial-gradient(ellipse 200px 140px at 99% 100%, #ece3ff 60%, transparent 62%),
+    linear-gradient(transparent 70%, #f4efff 70%);
+  opacity: .9; filter: blur(6px); }
+
+/* ---------- Boutons, questions, résultats (verre clair sur le ciel) ---------- */
+.btn { border-radius: 999px; font-family: "Quicksand"; font-weight: 700; }
+.btn.primary { background: linear-gradient(180deg, #9c7cf0, #6f4fd0); box-shadow: 0 6px 18px rgba(110, 80, 210, .45), inset 0 1px 0 rgba(255, 255, 255, .4); }
+.btn.ghost { background: rgba(255, 255, 255, .6); border: 1px solid #fff; color: var(--ink); }
+.quiz, .results { padding-top: 60px; }
+.quiz-top, .quiz-top .link, .quiz-title, .counter { color: #fff; }
+.counter { border: 1px solid rgba(255, 255, 255, .7); border-radius: 999px; padding: 3px 12px; white-space: nowrap; }
+.q-card, .score-card, .breakdown, .corr { background: var(--glass); backdrop-filter: blur(14px); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 16px 40px rgba(40, 20, 110, .25); }
+.big-seq { background: rgba(122, 91, 208, .1); border-radius: 18px; font-family: "Cinzel", serif; }
+.option { background: rgba(255, 255, 255, .85); border: 1px solid #ddd0fb; border-radius: 18px; }
+.option:hover { border-color: var(--violet); }
+.option.selected { border: 2px solid var(--violet); background: #efe7ff; box-shadow: 0 0 16px rgba(160, 130, 255, .5); }
+.progress { background: rgba(255, 255, 255, .45); }
+.progress div { background: linear-gradient(90deg, #c9b6f2, #7a5bd0); }
+.matrix, .an-pair { background: #e6dcfb; }
+.section-title, .corr-title { color: #fff; }
+.site-footer { border: 0; color: #4b3d85; position: relative; z-index: 2; background: #f4efff; }
+main { padding-bottom: 0; }
+
+@media (max-width: 860px) {
+  .hero { min-height: 560px; }
+  .moon-l { width: 110px; left: -10px; top: 190px; }
+  .lan-l, .constel { display: none; }
+  .gem { width: 240px; }
+  .tracks { grid-template-columns: repeat(2, 1fr); }
+  .tracks.three { grid-template-columns: 1fr; }
+  .orb { width: 96px; height: 96px; }
+}
